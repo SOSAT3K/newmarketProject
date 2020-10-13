@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import SubmitButton from './SubmitButton';
 import './App.css';
 
-class App extends React.Component{
+class App extends React.Component {
 
   //API call to check if user is logged in when component loads by checking session
   async componentDidMount() {

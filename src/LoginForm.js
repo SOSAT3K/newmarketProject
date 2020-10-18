@@ -66,12 +66,12 @@ class LoginForm extends React.Component{
       //Check if login has been (un)successful & run appropriate functions
       if (result && result.success) {
         UserStore.IsLoggedIn = true;
-        UserStore.username = result.username;
+        UserStore.username = result.username; 
       }
 
       else if (result && result.success === false) {
         this.resetForm();
-        alert(result.msg);
+        alert(result.msg); 
       }
     }
 

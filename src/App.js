@@ -11,7 +11,7 @@ class App extends React.Component {
   async componentDidMount() {
 
     try {
-      //res = result -- 
+      //res = result --
       let res = await fetch('/isLoggedIn', {
         method: 'post',
         //find 2 headers for the API request
@@ -25,7 +25,7 @@ class App extends React.Component {
 
       if (result && result.success) {
         UserStore.loading = false;  //If user is already logged in do not load app
-        UserStore.isLoggedIn = true;  
+        UserStore.isLoggedIn = true;
         UserStore.username = result.username; //Pass username through API
         this.render();
       }
@@ -45,7 +45,7 @@ class App extends React.Component {
   async DoLogOut() {
 
     try {
-      //res = result -- 
+      //res = result --
       let res = await fetch('/logout', {
         method: 'post',
         //find 2 headers for the API request
@@ -58,13 +58,27 @@ class App extends React.Component {
       let result = await res.json();
 
       if (result && result.success) {
-        UserStore.isLoggedIn = false;  
+        UserStore.isLoggedIn = false;
         UserStore.username = '';  //reset username to blank since user is logged out
       }
     }
     //If error is returned from API from above if statement, catch(e) will be called
     catch(e) {
       console.log(e)
+    }
+  }
+
+  async AddActiveUser(){
+
+    try {
+      /**
+      * Add code here to add to the connected database with sql query
+      * using these users to access the network from the captive page
+      * 
+      **/
+
+    } catch (e) {
+
     }
   }
 
@@ -85,18 +99,24 @@ class App extends React.Component {
           return (
             <div className="app">
 
-              {/* bhj bhj bj nj n*/}
-              <div className='container'>
-                <img src="./media/newmarket_apartments_logo.png" alt="main_logo"/>
-              </div>
+              {/* Create the module in the main container with CSS*/}
 
               <div className='container'>
+
+                <img src="./media/newmarket_apartments_logo.png" alt="main_logo"/>
+
                 Welcome {UserStore.username}
 
                 <SubmitButton
                   text={'Log Out'}
                   disabled={false}
                   onClick={ () => this.DoLogOut() } //Log user out if button is clicked
+                />
+
+                <SubmitButton
+                  text={'Print User Credentials'}
+                  disabled={false}
+                  onClick={ () => this.(AddActiveUser() } //Add the user to an active database of Guests on the network
                 />
 
               </div>

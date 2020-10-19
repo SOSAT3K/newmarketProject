@@ -27,6 +27,7 @@ class App extends React.Component {
         UserStore.loading = false;  //If user is already logged in do not load app
         UserStore.isLoggedIn = true;  
         UserStore.username = result.username; //Pass username through API
+        this.render();
       }
       //If not logged in..
       else {
@@ -83,6 +84,12 @@ class App extends React.Component {
         if (UserStore.isLoggedIn) {
           return (
             <div className="app">
+
+              {/* bhj bhj bj nj n*/}
+              <div className='container'>
+                <img src="./media/newmarket_apartments_logo.png" alt="main_logo"/>
+              </div>
+
               <div className='container'>
                 Welcome {UserStore.username}
 

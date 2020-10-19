@@ -65,7 +65,7 @@ class LoginForm extends React.Component{
 
       //Check if login has been (un)successful & run appropriate functions
       if (result && result.success) {
-        UserStore.IsLoggedIn = true;
+        UserStore.isLoggedIn = true;
         UserStore.username = result.username; 
       }
 
@@ -89,7 +89,7 @@ class LoginForm extends React.Component{
         Log In
         <InputField
           type='text'
-          placeholder='username'
+          placeholder='THIS HASNT UPDATED'
           value={this.state.username ? this.state.username :''}
           onChange={ (val) => this.setInputValue('username', val) }
         />

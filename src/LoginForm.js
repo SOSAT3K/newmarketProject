@@ -10,7 +10,7 @@ class LoginForm extends React.Component{
     this.state = {
       username: '',
       password: '',
-      buttonDisabled: false   //State to pass to disable button if user is already logged in/exists 
+      buttonDisabled: false   //State to pass to disable button if user is already logged in/exists
     }
   }
 
@@ -66,12 +66,12 @@ class LoginForm extends React.Component{
       //Check if login has been (un)successful & run appropriate functions
       if (result && result.success) {
         UserStore.isLoggedIn = true;
-        UserStore.username = result.username; 
+        UserStore.username = result.username;
       }
 
       else if (result && result.success === false) {
         this.resetForm();
-        alert(result.msg); 
+        alert(result.msg);
       }
     }
 
@@ -85,11 +85,11 @@ class LoginForm extends React.Component{
   render(){
     return (
       <div className="loginForm">
-        
+
         Log In
         <InputField
           type='text'
-          placeholder='THIS HASNT UPDATED'
+          placeholder='username'
           value={this.state.username ? this.state.username :''}
           onChange={ (val) => this.setInputValue('username', val) }
         />
